@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Board</title>
+  </head>
+
+  <body>
+    <table id="board">
+      <tbody>
+	
+	<tr>
+	  <td>
+	    <div class="threads" v-for="thread in threads">
+	      <div class="thread" >
+		<h2>{{thread.subject}}</h2>
+		<p>{{thread.comment}}</p>
+	      </div>
+	    </div>
+	  </td>
+	</tr>
+	
+	<tr>
+	  <td>
+	    <div class="thread">
+	      <div class="post">
+		<table>
+		  <tbody>
+		    <tr>
+		      <td>Name:</td>
+		      <td><input v-model="name" placeholder="Anonymous"></td>
+		    </tr>
+		    <tr>
+		      <td>Subject:</td>
+		      <td> <input v-model="subject"> </td>
+		    </tr>
+		  </tbody>
+		</table>
+		<table>
+		  <tbody>
+		    <tr>
+		      <td><textarea class="comment" v-model="comment" rows="5"cols="57"></textarea></td></tr>
+		    <!--<tr><td><input type="file" name="photo"></td></tr>-->
+		    <tr><td><button @click="newThread">Create thread</button></td></tr>
+		  </tbody>
+		</table>
+	      </div>
+	    </div>
+	  </td>
+	</tr>
+      </tbody>
+    </table>
+
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+	    <script src="/script.js"></script>
+  </body>
+
+</html>
