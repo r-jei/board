@@ -11,7 +11,6 @@ app.use(express.static('public')); //set up public directory to serve files from
 
 const mongoose = require('mongoose');
 
-// connect to the database. will create a brand new database for us, museum, if it doesn't already exist.
 mongoose.connect('mongodb://localhost:27017/board', {
     useNewUrlParser: true
 });
@@ -28,7 +27,7 @@ app.post('/api/threads', async (req, res) => {
     console.log('sup');
     console.log(req)
     const thread = new Thread({
-	name: req.body.title,
+	name: req.body.name,
 	subject: req.body.subject,
 	comment: req.body.comment,
     });

@@ -7,13 +7,14 @@ var app = new Vue({
 	threads: [],
 	
     },
+    
     created(){
 	this.getThreads();
     },
+    
     methods: {
 	async newThread(){
-	    console.log('sup')
-	    /*try {
+	    try {
 		let r2 = await axios.post('/api/threads', {
 		    name: this.name,
 		    subject: this.subject,
@@ -21,7 +22,7 @@ var app = new Vue({
 		});
 	    } catch (error) {
 		console.log(error);
-	    }*/
+	    }
 	},
 
 	async getThreads() {
@@ -29,6 +30,7 @@ var app = new Vue({
 	    try {
 		let response = await axios.get("/api/threads");
 		this.threads = response.data;
+		console.log(this.threads)
 		return true;
 	    } catch (error) {
 		console.log(error);
