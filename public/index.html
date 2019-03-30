@@ -10,15 +10,15 @@
   <body>
     <table id="board">
       <tbody>
-	
+
 	<tr>
 	  <td>
-	    <div class="threads" v-for="thread in threads">
-	      <div class="thread" >
-		<h2>{{thread.subject}}</h2>
-		<p>{{thread.comment}}</p>
-	      </div>
-	    </div>
+	    <table class="threads" v-for="thread in threads">
+	      <tr class="thread" >
+		<table>
+		</table>
+	      </tr>
+	    </table>
 	  </td>
 	</tr>
 	
@@ -53,9 +53,9 @@
       </tbody>
     </table>
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
-	    <script src="/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
   </body>
 
 </html>
