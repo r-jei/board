@@ -9,43 +9,46 @@
 
   <body>
     
-    <div class="thread" id="board">
+    <div id="board">
 
       <div>
 	<div v-for="thread in threads">
-	  <div>
-	    {{thread.name}}
+	  <div class="thread">
+	    <div>
+	      {{thread.name}}
+	    </div>
+	    <div>
+	      {{thread.subject}}
+	    </div>
+	    <div>
+	      {{thread.comment}}
+	    </div>
+	    <div>
+	    </div>
 	  </div>
-	  <div>
-	    {{thread.subject}}
+	</div>
+	  
+	  <div class="post">
+	    <div>
+	      Name:
+	      <input v-model="name" placeholder="Anonymous">
+	    </div>
+	    <div>
+	      Subject:
+	      <input v-model="subject"> 
+	    </div>
+	    <div>
+	      <textarea class="comment" v-model="comment" rows="5"cols="57"></textarea>
+	    </div>
+	    <div>
+	      <button @click="newThread">Create thread</button>
+	    </div>
 	  </div>
-	  <div>
-	    {{thread.comment}}
-	  </div>
 	</div>
-      </div>
-      
-      <div class="post">
-	<div>
-	  Name:
-	  <input v-model="name" placeholder="Anonymous">
-	</div>
-	<div>
-	  Subject:
-	  <input v-model="subject"> 
-	</div>
-	<div>
-	  <textarea class="comment" v-model="comment" rows="5"cols="57"></textarea>
-	</div>
-	<div>
-	  <button @click="newThread">Create thread</button>
-	</div>
-      </div>
-    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
-    <script src="/script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+	<script src="/script.js"></script>
   </body>
 
 </html>
