@@ -18,7 +18,7 @@ mongoose.connect('mongodb://localhost:27017/board', {
 const threadSchema = new mongoose.Schema({
     name: String,
     subject: String,
-    desc: String,
+    comment: String,
 });
 
 const Thread = mongoose.model('Thread', threadSchema);
@@ -29,7 +29,7 @@ app.post('/api/threads', async (req, res) => {
     const thread = new Thread({
 	name: req.body.name,
 	subject: req.body.subject,
-	comment: req.body.comment,
+	comment: req.body.comment
     });
     try {
 	await thread.save();
@@ -46,6 +46,16 @@ app.get('/api/threads', async (req, res) => {
     try {
 	let threads = await Thread.find();
 	res.send(threads);
+    } catch (error) {
+	console.log(error);
+	res.sendStatus(500);
+    }
+});
+
+app.delete('/api/threads/:id', async (req,res) => {
+    try {
+	let success = await Thread.deleteOne( {"_id": req.params.id} );
+	res.sendStatus(200);
     } catch (error) {
 	console.log(error);
 	res.sendStatus(500);

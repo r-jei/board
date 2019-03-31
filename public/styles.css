@@ -9,13 +9,26 @@ body{
 
 .post{
     padding: 10px;
-    width: auto;
+    width:auto;
     background-color: #ffd2b3;
     vertical-align: left;
+    display: inline-block;
+}
+
+.txtarea{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+    width: 100%;
+}
+
+.content{
+    padding: 10px;
+    background-color: #ffd2b3;
+
 }
 
 .thread{
     display: inline-block;
-    background-color: #ffd2b3;
-    
+    padding: 5px;
 }

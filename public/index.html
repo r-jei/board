@@ -8,47 +8,54 @@
   </head>
 
   <body>
-    
+    <div class="motd">
+      <h4>
+	THA RULES:
+	<br>
+	1. Have fun & take it easy
+	<br>
+	2. Do not abuse delete function or get b&
+      </h4>
+    </div>
     <div id="board">
-
       <div>
 	<div v-for="thread in threads">
 	  <div class="thread">
-	    <div>
-	      {{thread.name}}
-	    </div>
-	    <div>
-	      {{thread.subject}}
-	    </div>
-	    <div>
-	      {{thread.comment}}
-	    </div>
-	    <div>
-	    </div>
-	  </div>
-	</div>
-	  
-	  <div class="post">
-	    <div>
-	      Name:
-	      <input v-model="name" placeholder="Anonymous">
-	    </div>
-	    <div>
-	      Subject:
-	      <input v-model="subject"> 
-	    </div>
-	    <div>
-	      <textarea class="comment" v-model="comment" rows="5"cols="57"></textarea>
-	    </div>
-	    <div>
-	      <button @click="newThread">Create thread</button>
-	    </div>
-	  </div>
-	</div>
+	    <div class="content">
+	      <div>
+		<button @click="deleteThread(thread)">X</button>
+		<span v-show="!thread.edit">
+		  <strong>{{thread.name}}</strong>
+		  {{thread.subject}}
+		  <button @click="editThread(thread)">Edit Name</button>
+		</span>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
-	<script src="/script.js"></script>
+		<span v-show="thread.edit">
+		  <input type="text" v-model="thread.temp" v-show="thread.edit">
+		  {{thread.subject}}
+		  <button @click="saveEdit(thread)">Save</button>
+		  <button @click="cancelEdit(thread)">Cancel</button>
+		</span>
+	      </div>
+
+	      <div></div>
+	      <br>
+	      <div>{{thread.comment}}</div>
+	      <div v-if="thread===this.findThread">wow nice one dude</div>
+	    </div>
+	  </div>
+	</div>
+	<div class="post">
+	  <div>Name:<input v-model="name" placeholder="Anonymous"></div>
+	  <div>Subject:<input v-model="subject"></div>
+	  <div><textarea class="txtarea" v-model="comment" rows="5"></textarea></div>
+	  <div><button @click="newThread">Add comment</button></div></div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
   </body>
 
 </html>
