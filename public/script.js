@@ -27,6 +27,7 @@ var app = new Vue({
 	    } catch (error) {
 		console.log(error);
 	    }
+	    window.location.reload()
 	},
 
 	async getThreads() {
@@ -44,10 +45,12 @@ var app = new Vue({
 	async deleteThread(thread) {
 	    try {
 		let response = axios.delete("/api/threads/" + thread._id);
+		window.location.reload()
 		return true;
 	    } catch (error) {
 		console.log(error);
 	    }
+	    window.location.reload()
 	},
 
 	async editThread(thread) {
@@ -63,7 +66,13 @@ var app = new Vue({
 
 	async saveEdit(thread) {
 	    try {
-		thread.edit=true
+		thread.name = thread.temp
+		let response = await axios.put("/api/threads/" + thread._id, {
+		    name: thread.name,
+		    subject: thread.subject,
+		    comment: thread.comment,
+		});
+		thread.edit=false
 		app.$forceUpdate()
 		return true;
 	    } catch (error) {

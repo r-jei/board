@@ -62,4 +62,20 @@ app.delete('/api/threads/:id', async (req,res) => {
     }
 });
 
+// Create a new item in the museum: takes a title and a path to an image.
+app.put('/api/threads/:id', async (req, res) => {
+    try {
+	let thread = await Thread.findOne({"_id": req.params.id});
+	thread.name = req.body.name
+	thread.subject = req.body.subject
+	thread.comment = req.body.comment
+	await thread.save();
+	res.send(thread);
+	
+    } catch (error) {
+	console.log(error);
+	res.sendStatus(500);
+    }
+});
+
 app.listen(3000, () => console.log('Server listening on port 3000!'));
