@@ -19,6 +19,12 @@ var app = new Vue({
 		if(this.name===''){
 		    this.name = 'Anonymous';
 		}
+
+		if(this.comment.length===0) {
+		    alert('Empty comments not allowed')
+		    return
+		}
+		
 		let r2 = await axios.post('/api/threads', {
 		    name: this.name,
 		    subject: this.subject,
@@ -67,6 +73,9 @@ var app = new Vue({
 	async saveEdit(thread) {
 	    try {
 		thread.name = thread.temp
+		if(thread.name===''){
+		    thread.name='Anonymous'
+		}
 		let response = await axios.put("/api/threads/" + thread._id, {
 		    name: thread.name,
 		    subject: thread.subject,

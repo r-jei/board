@@ -31,7 +31,7 @@
 		</span>
 
 		<span v-show="thread.edit">
-		  <input type="text" v-model="thread.temp" v-show="thread.edit">
+		  <input type="text" placeholder="Anonymous" v-model="thread.temp" v-show="thread.edit">
 		  {{thread.subject}}
 		  <button @click="saveEdit(thread)">Save</button>
 		  <button @click="cancelEdit(thread)">Cancel</button>
@@ -57,5 +57,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
     <script src="/script.js"></script>
   </body>
-
+  <footer class="footer">
+    <div class="container">
+      <span class="text-muted"><a href="https://github.com/r-jei/board">Github<a></span>
+    </div>
+  </footer>
 </html>
